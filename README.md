@@ -36,9 +36,10 @@ open your browser at http://127.0.0.1:8000
 👤 **Zaki Pedio**
 
 * Website: https://zakipedio.dev
+* Blog: https://blog.zakipedio.dev
 * Twitter: [@ZakiPedio](https://twitter.com/ZakiPedio)
 * Github: [@ZakiPedio](https://github.com/ZakiPedio)
-* LinkedIn: [@Zaki Pedio](https://linkedin.com/in/Zaki Pedio)
+* LinkedIn: [@ZakiPedio](https://linkedin.com/in/ZakiPedio)
 
 ## Show your support
 

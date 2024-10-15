@@ -1,0 +1,9 @@
+<div class="logo">
+    <img src="/static/logo.png" alt="C2Watch Logo" class="logo-img">
+</div>
+
+{% for query in queries.values() %}
+	<a href="/show?query={{ query.queryValue }}">{{ query.queryName }}</a>
+{% endfor %}
+<a href="/ipSearch">IP Search</a>
+<a href="/addQuery">[+] Add Query</a>

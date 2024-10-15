@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container center-form">
+        <div class="col-md-6">
+            <h2>Add Query</h2>
+            <form action="/addQuery" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="query_name">Query Name:</label>
+                    <input type="text" id="query_name" name="query_name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="query_value">Query Value:</label>
+                    <input type="text" id="query_value" name="query_value" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="query_file">Query File Name:</label>
+                    <input type="text" id="query_file" name="query_file" class="form-control" required>
+                </div>
+                <button type="submit" class="button">Add</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

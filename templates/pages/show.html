@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Add a container for the buttons -->
+    <div class="button-container">
+        <!-- Button for Refresh -->
+        <button class="button refresh">Refresh</button>
+    </div>
+
+    <!-- Add a div with an id to hold the map -->
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
+    
+    <!-- Move the "Shodan Query" text to the top -->
+    <p class="cent shodan-query">Shodan Query: [ {{ query }} ]</p>
+    
+    <!-- Include Plotly.js library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- JavaScript code to render the Plotly figure and handle refresh -->
+    <script>
+    // Function to handle refresh button click
+    document.querySelector('.refresh').addEventListener('click', function() {
+        // Get the current query string from the URL
+        var currentUrlParams = new URLSearchParams(window.location.search);
+        // Get the value of the 'query' parameter from the query string
+        var queryParam = currentUrlParams.get('query');
+        // Construct the refresh URL with the query parameter
+        var refreshUrl = '/refresh?query=' + encodeURIComponent(queryParam);
+        
+        // Make an AJAX request to the Flask backend with the query parameter
+        fetch(refreshUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Reload the page after receiving the response
+            window.location.reload();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+
+    // Convert the Python figure to JSON
+    var fig = {{ fig.to_json() | safe }};
+    // Render the figure using Plotly.js
+    Plotly.newPlot('map', fig.data, fig.layout);
+</script>
+
+{% endblock %}

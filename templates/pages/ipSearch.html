@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="search-container">
+        <!-- Add a container for the search input and button -->
+        <form id="search-form" action="/ipSearch" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="text" id="ip" name="ip_query" class="form-control" placeholder="Enter IP Address">
+                    <button type="submit" id="search-button" class="button">Search</button>
+            </div>
+        </form>
+    </div>
+
+	<!-- Add a container for displaying search results -->
+<div id="search-results">
+    {% if ip_json %}
+        <pre style="white-space: pre-wrap;">{{ ip_json | tojson(indent=2) }}</pre>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

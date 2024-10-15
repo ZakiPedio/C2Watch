@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Add a div with an id to hold the map -->
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
+
+    <!-- Include Plotly.js library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- JavaScript code to render the Plotly figure -->
+    <script>
+        // Convert the Python figure to JSON
+        var fig = {{ fig.to_json() | safe }};
+
+        // Render the figure using Plotly.js
+        Plotly.newPlot('map', fig.data, fig.layout);
+    </script>
+{% endblock %}

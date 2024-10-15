@@ -7,7 +7,7 @@
 
 > C2Watch is a simple Threat Intelligence framework (powered by Shodan), to aid the monitoring of Command and Control server in the wild
 
-<img title="Example of C2Watch page" alt="Example of C2Watch page" src="./example_image.png" style="width: 50%;">
+<img title="Example of C2Watch page" alt="Example of C2Watch page" src="./example_image.png">
 
 
 ## Notes
